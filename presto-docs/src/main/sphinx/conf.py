@@ -20,7 +20,10 @@
 
 import os
 import sys
+import warnings
 import xml.dom.minidom
+
+from sphinx.deprecation import RemovedInSphinx80Warning
 
 try:
     sys.dont_write_bytecode = True
@@ -28,6 +31,8 @@ except:
     pass
 
 sys.path.insert(0, os.path.abspath("ext"))
+
+warnings.filterwarnings("ignore", category=RemovedInSphinx80Warning)
 
 
 def child_node(node, name):
